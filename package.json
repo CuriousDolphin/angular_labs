@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "mock_server": "json-server --watch db.json"
+    "mock_server": "json-server-auth --watch db.json -r virtuallabs_routes.json"
   },
   "private": true,
   "dependencies": {

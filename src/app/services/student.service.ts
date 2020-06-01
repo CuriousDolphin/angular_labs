@@ -55,7 +55,8 @@ export class StudentService {
       // server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    window.alert(errorMessage);
+    //window.alert(errorMessage);
+    console.log("HTTP ERROR", errorMessage);
     return of(null);
   }
 }

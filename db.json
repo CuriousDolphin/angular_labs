@@ -4,7 +4,7 @@
       "id": "s263138",
       "name": "Murabito",
       "firstName": "ivan",
-      "courseId": 1,
+      "courseId": 0,
       "groupId": 0
     },
     {
@@ -18,7 +18,7 @@
       "id": "s235344",
       "name": "Verdi",
       "firstName": "mario",
-      "courseId": 1,
+      "courseId": 0,
       "groupId": 0
     },
     {
@@ -67,14 +67,14 @@
       "id": "s277203",
       "name": "Bruggen",
       "firstName": "Dino",
-      "courseId": 1,
+      "courseId": 0,
       "groupId": 0
     },
     {
       "id": "s290508",
       "name": "Heinel",
       "firstName": "Quint",
-      "courseId": 1,
+      "courseId": 0,
       "groupId": 0
     },
     {
@@ -88,7 +88,7 @@
       "id": "s233155",
       "name": "Mizzi",
       "firstName": "Jackie",
-      "courseId": 0,
+      "courseId": 1,
       "groupId": 0
     },
     {
@@ -137,7 +137,7 @@
       "id": "s286948",
       "name": "Sturridge",
       "firstName": "Cristian",
-      "courseId": 0,
+      "courseId": 1,
       "groupId": 0
     },
     {
@@ -599,7 +599,7 @@
       "id": "s298789",
       "name": "Ethington",
       "firstName": "Ximenez",
-      "courseId": 0,
+      "courseId": 1,
       "groupId": 0
     },
     {

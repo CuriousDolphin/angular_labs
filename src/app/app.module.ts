@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -24,6 +24,9 @@ import { HomeComponent } from "./home/home.component";
 import { VmsComponent } from "./teacher/vms/vms.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatDialogModule } from "@angular/material/dialog";
+import { LoginDialogComponent } from "./auth/login-dialog/login-dialog.component";
+import { TokenInterceptor } from './auth/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
     HomeComponent,
     VmsComponent,
     PageNotFoundComponent,
+    LoginDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,8 +58,16 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
     MatSortModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
+  entryComponents: [LoginDialogComponent],
 })
 export class AppModule {}

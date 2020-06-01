@@ -7,16 +7,8 @@ import {
   EventEmitter,
 } from "@angular/core";
 import { Student } from "../../models/student.model";
-import { Observable, of, BehaviorSubject } from "rxjs";
-import {
-  map,
-  startWith,
-  tap,
-  debounceTime,
-  distinctUntilChanged,
-  filter,
-  take,
-} from "rxjs/operators";
+import { Observable } from "rxjs";
+import { map, startWith } from "rxjs/operators";
 import { SelectionModel } from "@angular/cdk/collections";
 import { MatTableDataSource } from "@angular/material/table";
 import { FormControl } from "@angular/forms";
@@ -32,7 +24,12 @@ import { MatPaginator } from "@angular/material/paginator";
 export class StudentsComponent implements OnInit {
   dataSource = new MatTableDataSource<Student>();
   @Input() set enrolledStudents(students: Student[]) {
-    if (students != null) this.dataSource.data = students;
+    if (students != null) {
+      console.log("set enrolled students", students);
+
+      this.selectedStudents.clear();
+      this.dataSource.data = students;
+    }
   }
   @Input() set studentsDB(students: Student[]) {
     if (students != null) this.allStudents = students;
@@ -75,6 +72,7 @@ export class StudentsComponent implements OnInit {
       this.studentToAdd &&
       _.findIndex(this.dataSource.data, this.studentToAdd) == -1
     ) {
+      this.selectedStudents.clear();
       // emit here
       this.addStudent.emit(this.studentToAdd);
       this.studentToAdd = null;
